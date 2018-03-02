@@ -1,5 +1,7 @@
 /* eslint-env node */
 /* eslint no-process-env: 0 */
+const path = require('path')
+const jsCoveragePath = path.resolve(__dirname, '../coverage')
 
 module.exports = (config) => {
   const jqueryFile = process.env.USE_OLD_JQUERY ? 'js/tests/vendor/jquery-1.9.1.min.js' : 'assets/js/vendor/jquery-slim.min.js'
@@ -52,6 +54,7 @@ module.exports = (config) => {
       }
     },
     coverageIstanbulReporter: {
+      dir: jsCoveragePath,
       reports: ['lcov', 'text-summary'],
       fixWebpackSourcePaths: true,
       thresholds: {
